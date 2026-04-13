@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr Soufiane ESSAHLAOUI — Gastro-Entérologue & Proctologue à Meknès</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --dark: #1A1510;
+    --gold: #B8935A;
+    --gold-light: #D4AC7A;
+    --muted: #6B6257;
+    --border: rgba(184,147,90,0.2);
+    --white: #FFFFFF;
+    --teal: #2D6A6A;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 18px 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600; color: var(--dark);
+    text-decoration: none; letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  .nav-logo span { color: var(--gold); display: block; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; }
+
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 400; color: var(--muted);
+    text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .btn-rdv {
+    background: var(--gold);
+    color: var(--white) !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.08em !important;
+    display: flex; align-items: center; gap: 7px;
+    transition: background 0.25s !important;
+  }
+  .btn-rdv:hover { background: var(--dark) !important; color: var(--white) !important; }
+
+  .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--dark); transition: 0.3s; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-bg-pattern {
+    position: absolute; top: 0; right: 0; width: 55%; height: 100%;
+    background: linear-gradient(135deg, #2D6A6A 0%, #1A3D3D 100%);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 0;
+  }
+
+  .hero-bg-pattern::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-content {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 5% 80px 7%;
+    position: relative; z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(184,147,90,0.12);
+    border: 1px solid var(--border);
+    padding: 6px 14px; border-radius: 2px;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 28px; width: fit-content;
+  }
+
+  .hero-badge svg { width: 14px; height: 14px; fill: var(--gold); }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 300; line-height: 1.1;
+    color: var(--dark); margin-bottom: 10px;
+  }
+
+  h1 em { font-style: italic; color: var(--gold); }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 300; color: var(--muted);
+    margin-bottom: 28px; font-style: italic;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem; color: var(--muted); max-width: 460px;
+    line-height: 1.8; margin-bottom: 40px;
+  }
+
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .cta-primary {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: var(--gold); color: var(--white);
+    padding: 15px 30px; border-radius: 2px;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+    text-decoration: none; transition: background 0.25s, transform 0.2s;
+  }
+  .cta-primary:hover { background: var(--dark); transform: translateY(-1px); }
+
+  .cta-secondary {
+    display: inline-flex; align-items: center; gap: 9px;
+    border: 1px solid var(--gold);
+    color: var(--gold); padding: 15px 30px; border-radius: 2px;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+    text-decoration: none; transition: all 0.25s;
+  }
+  .cta-secondary:hover { background: var(--gold); color: var(--white); }
+
+  .hero-stats {
+    display: flex; gap: 32px; margin-top: 52px; padding-top: 36px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-item { }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 600; color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; letter-spacing: 0.04em; }
+
+  .hero-image {
+    display: flex; align-items: flex-end; justify-content: center;
+    position: relative; z-index: 1; padding: 40px 5% 0;
+  }
+
+  .hero-img-wrap {
+    position: relative; width: 100%; max-width: 420px;
+  }
+
+  .hero-img-wrap img {
+    width: 100%; height: 580px; object-fit: cover;
+    border-radius: 4px 4px 0 0;
+    filter: saturate(0.9);
+  }
+
+  .hero-img-placeholder {
+    width: 100%; height: 580px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+    border-radius: 4px 4px 0 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .doctor-avatar {
+    width: 200px; height: 200px; border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+    border: 2px solid rgba(184,147,90,0.4);
+  }
+
+  .doctor-avatar svg { width: 80px; height: 80px; fill: rgba(255,255,255,0.4); }
+
+  .img-caption {
+    text-align: center; color: rgba(255,255,255,0.7);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-style: italic;
+  }
+
+  .img-caption small {
+    display: block; font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(184,147,90,0.8);
+    margin-top: 4px; font-style: normal;
+  }
+
+  .floating-card {
+    position: absolute; bottom: 40px; left: -30px;
+    background: var(--white);
+    padding: 16px 22px;
+    border-radius: 3px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    display: flex; align-items: center; gap: 12px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+  .fc-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(45,106,106,0.1);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .fc-icon svg { width: 20px; height: 20px; fill: var(--teal); }
+  .fc-text p { font-size: 0.78rem; font-weight: 500; color: var(--dark); }
+  .fc-text span { font-size: 0.7rem; color: var(--muted); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 7%; }
+
+  .section-label {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 30px; height: 1px; background: var(--gold);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300; line-height: 1.15;
+    color: var(--dark); margin-bottom: 20px;
+  }
+
+  h2 em { font-style: italic; color: var(--gold); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+
+  .about-img {
+    position: relative;
+  }
+
+  .about-img-inner {
+    width: 100%; aspect-ratio: 4/5;
+    background: linear-gradient(135deg, #2D6A6A 0%, #1A4040 100%);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+
+  .about-img-inner::before {
+    content: '';
+    position: absolute; bottom: -20px; right: -20px;
+    width: 80%; height: 80%;
+    border: 2px solid rgba(184,147,90,0.3);
+    border-radius: 3px;
+  }
+
+  .about-img-inner svg { width: 100px; height: 100px; fill: rgba(255,255,255,0.2); }
+
+  .about-cert {
+    position: absolute; top: 30px; right: -20px;
+    background: var(--gold);
+    color: var(--white); padding: 20px;
+    border-radius: 3px; text-align: center;
+    width: 110px;
+    box-shadow: 0 10px 30px rgba(184,147,90,0.3);
+  }
+  .about-cert .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 600; line-height: 1;
+  }
+  .about-cert small { font-size: 0.68rem; letter-spacing: 0.06em; }
+
+  .about-text p { color: var(--muted); font-size: 0.95rem; margin-bottom: 18px; }
+
+  .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+
+  .af-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 16px; background: var(--cream); border-radius: 3px;
+  }
+  .af-icon {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(45,106,106,0.1);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .af-icon svg { width: 18px; height: 18px; fill: var(--teal); }
+  .af-item p { font-size: 0.82rem; font-weight: 500; color: var(--dark); }
+  .af-item span { font-size: 0.74rem; color: var(--muted); }
+
+  /* ── SERVICES ── */
+  #services { background: var(--cream); }
+
+  .services-intro { max-width: 600px; margin-bottom: 60px; }
+  .services-intro p { color: var(--muted); font-size: 0.95rem; }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--white); padding: 36px 28px;
+    border-radius: 3px; border: 1px solid transparent;
+    transition: all 0.3s; cursor: default;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--teal));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { border-color: var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.07); transform: translateY(-4px); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .sc-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: rgba(184,147,90,0.15);
+    line-height: 1; margin-bottom: 16px;
+  }
+  .sc-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(45,106,106,0.08);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .sc-icon svg { width: 24px; height: 24px; fill: var(--teal); }
+
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .service-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── PATHOLOGIES ── */
+  #pathologies { background: var(--white); }
+
+  .patho-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
+  .patho-header-right { color: var(--muted); font-size: 0.94rem; line-height: 1.8; }
+
+  .patho-tabs {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px;
+  }
+  .patho-tab {
+    padding: 9px 20px; border-radius: 2px; cursor: pointer;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em;
+    border: 1px solid var(--border); color: var(--muted);
+    background: transparent; transition: all 0.25s;
+  }
+  .patho-tab.active, .patho-tab:hover {
+    background: var(--teal); color: var(--white); border-color: var(--teal);
+  }
+
+  .patho-panels > div { display: none; }
+  .patho-panels > div.active { display: block; }
+
+  .patho-list {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .patho-item {
+    background: var(--cream); border-radius: 3px;
+    border: 1px solid transparent;
+    padding: 20px 18px;
+    display: flex; gap: 12px; align-items: flex-start;
+    transition: all 0.25s; cursor: default;
+  }
+  .patho-item:hover { border-color: var(--border); background: var(--white); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+
+  .patho-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0; margin-top: 7px;
+  }
+  .patho-item-text p { font-size: 0.87rem; font-weight: 500; color: var(--dark); line-height: 1.35; }
+  .patho-item-text span { font-size: 0.76rem; color: var(--muted); }
+
+  .patho-cta-bar {
+    margin-top: 44px; padding: 32px 36px;
+    background: linear-gradient(135deg, var(--teal), #1A4040);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .patho-cta-bar p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; color: var(--white); font-weight: 300;
+  }
+  .patho-cta-bar p em { font-style: italic; color: var(--gold-light); }
+
+  @media (max-width: 960px) {
+    .patho-header { grid-template-columns: 1fr; gap: 20px; }
+    .patho-list { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .patho-list { grid-template-columns: 1fr; }
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--dark); }
+
+  #testimonials .section-label { color: var(--gold-light); }
+  #testimonials h2 { color: var(--white); }
+
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
+
+  .testi-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 32px 28px; border-radius: 3px;
+    transition: background 0.3s;
+  }
+  .testi-card:hover { background: rgba(255,255,255,0.07); }
+
+  .stars { display: flex; gap: 3px; margin-bottom: 18px; }
+  .stars svg { width: 14px; height: 14px; fill: var(--gold); }
+
+  .testi-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-style: italic;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.7; margin-bottom: 24px;
+  }
+
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(184,147,90,0.2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .testi-avatar svg { width: 20px; height: 20px; fill: var(--gold); }
+  .testi-author-info p { font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.9); }
+  .testi-author-info span { font-size: 0.74rem; color: rgba(255,255,255,0.45); }
+
+  /* ── FAQ ── */
+  #faq { background: var(--white); }
+
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+
+  .faq-intro p { color: var(--muted); font-size: 0.95rem; margin-bottom: 32px; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 2px; }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0; cursor: pointer;
+    font-size: 0.93rem; font-weight: 500; color: var(--dark);
+    gap: 16px; user-select: none;
+  }
+  .faq-q:hover { color: var(--gold); }
+
+  .faq-chevron {
+    width: 20px; height: 20px; flex-shrink: 0;
+    border: 1px solid var(--border); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .faq-chevron svg { width: 10px; height: 10px; fill: var(--muted); transition: transform 0.3s; }
+  .faq-item.open .faq-chevron { background: var(--gold); border-color: var(--gold); }
+  .faq-item.open .faq-chevron svg { fill: white; transform: rotate(180deg); }
+
+  .faq-a {
+    font-size: 0.87rem; color: var(--muted);
+    line-height: 1.8; padding-bottom: 18px;
+    display: none;
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: linear-gradient(135deg, #2D6A6A 0%, #1A4040 100%);
+    position: relative; overflow: hidden;
+  }
+
+  #contact::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: rgba(184,147,90,0.08);
+  }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+  #contact .section-label { color: rgba(184,147,90,0.9); }
+  #contact h2 { color: var(--white); }
+  #contact .section-intro { color: rgba(255,255,255,0.65); font-size: 0.95rem; margin-bottom: 40px; }
+
+  .contact-infos { display: flex; flex-direction: column; gap: 20px; }
+
+  .ci-item { display: flex; gap: 16px; align-items: flex-start; }
+  .ci-icon {
+    width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ci-icon svg { width: 20px; height: 20px; fill: var(--gold-light); }
+  .ci-content p { font-size: 0.82rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 2px; }
+  .ci-content strong { font-size: 0.92rem; color: rgba(255,255,255,0.9); font-weight: 500; }
+
+  .contact-form-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px; padding: 40px;
+  }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 0.77rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%; padding: 13px 16px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 2px; color: rgba(255,255,255,0.9);
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    transition: border-color 0.25s; outline: none;
+    appearance: none;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--gold-light); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-group select option { background: #1A4040; color: #fff; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .btn-submit {
+    width: 100%; padding: 16px;
+    background: var(--gold); color: var(--white);
+    border: none; border-radius: 2px; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.87rem;
+    font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 0.25s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-submit:hover { background: var(--white); color: var(--dark); }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed; bottom: 30px; right: 30px; z-index: 200;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+    text-decoration: none; transition: transform 0.25s;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float svg { width: 28px; height: 28px; fill: white; }
+
+  @keyframes pulse {
+    0%,100%{ box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
+    50%{ box-shadow: 0 8px 40px rgba(37,211,102,0.65); }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.5);
+    padding: 40px 7%; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.8);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  footer p { font-size: 0.8rem; }
+
+  footer a { color: var(--gold-light); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    #hero { grid-template-columns: 1fr; }
+    .hero-bg-pattern { width: 100%; clip-path: none; opacity: 0.15; }
+    .hero-image { display: none; }
+    .about-grid, .faq-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--cream); flex-direction: column; padding: 20px 7%; border-bottom: 1px solid var(--border); gap: 16px; }
+    .nav-links.active { display: flex; }
+    .menu-toggle { display: flex; }
+    section { padding: 70px 5%; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 20px; }
+    .about-features { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    Dr Soufiane ESSAHLAOUI
+    <span>Gastro-Entérologue & Proctologue</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">Le Médecin</a>
+    <a href="#services">Spécialités</a>
+    <a href="#testimonials">Avis</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/212720992519?text=Bonjour%20Dr%20ESSAHLAOUI%2C%20je%20souhaite%20prendre%20un%20rendez-vous." class="btn-rdv" target="_blank">
+      <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.845L.017 23.604a.5.5 0 00.602.602l5.76-1.494A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.017-1.374l-.36-.213-3.722.965.988-3.613-.234-.372A9.818 9.818 0 012.182 12c0-5.417 4.401-9.818 9.818-9.818 5.417 0 9.818 4.401 9.818 9.818 0 5.418-4.401 9.818-9.818 9.818z"/></svg>
+      Prendre RDV
+    </a>
+  </div>
+  <div class="menu-toggle" id="menuToggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      Spécialiste à Meknès
+    </div>
+
+    <h1>Dr Soufiane<br><em>ESSAHLAOUI</em></h1>
+    <p class="hero-subtitle">Gastro-Entérologue & Proctologue</p>
+    <p class="hero-desc">
+      Médecin spécialiste en gastro-entérologie et proctologie à Meknès — Hamria. Prise en charge personnalisée et humaine de vos pathologies digestives.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="https://wa.me/212720992519?text=Bonjour%20Dr%20ESSAHLAOUI%2C%20je%20souhaite%20prendre%20un%20rendez-vous." class="cta-primary" target="_blank">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.845L.017 23.604a.5.5 0 00.602.602l5.76-1.494A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.017-1.374l-.36-.213-3.722.965.988-3.613-.234-.372A9.818 9.818 0 012.182 12c0-5.417 4.401-9.818 9.818-9.818 5.417 0 9.818 4.401 9.818 9.818 0 5.418-4.401 9.818-9.818 9.818z"/></svg>
+        Prendre RDV WhatsApp
+      </a>
+      <a href="#about" class="cta-secondary">En savoir plus</a>
+    </div>
+
+    
+  </div>
+
+  <div class="hero-image">
+    <div class="hero-img-wrap">
+      <div class="hero-img-placeholder">
+        <div class="doctor-avatar">
+          <img src="logo.png" alt="Dr Soufiane ESSAHLAOUI" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="img-caption">
+          Dr Soufiane ESSAHLAOUI
+          <small>Gastro-Entérologue & Proctologue</small>
+        </div>
+      </div>
+      <div class="floating-card">
+        <div class="fc-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <div class="fc-text">
+          <p>Consultation disponible</p>
+          <span>Hamria, Meknès</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid fade-in">
+    <div class="about-img">
+      <div class="about-img-inner">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+   
+    </div>
+
+    <div class="about-text">
+      <div class="section-label">Le Médecin</div>
+      <h2>Expert en <em>gastro-entérologie</em><br>& proctologie</h2>
+      <p>
+        Le Dr Soufiane ESSAHLAOUI est médecin spécialiste en gastro-entérologie et proctologie, exerçant à Meknès dans le quartier de Hamria. Titulaire d'un diplôme de spécialité en gastro-entérologie, il assure le diagnostic et le traitement de l'ensemble des pathologies digestives.
+      </p>
+      <p>
+        Son approche combine expertise médicale et écoute bienveillante, pour une prise en charge globale et humaine de chaque patient. Il réalise les explorations endoscopiques (coloscopie, fibroscopie), le diagnostic et le traitement des maladies du côlon, de l'œsophage, de l'estomac et de l'anus.
+      </p>
+
+      <div class="about-features">
+        <div class="af-item">
+          <div class="af-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <div>
+            <p>Diplômé spécialiste</p>
+            <span>Formation universitaire</span>
+          </div>
+        </div>
+        <div class="af-item">
+          <div class="af-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 6h-3V4c0-1.11-.89-2-2-2H9c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM9 4h6v2H9V4zm11 15H4v-2h16v2zm0-5H4V8h3v2h2V8h6v2h2V8h3v6z"/></svg>
+          </div>
+          <div>
+            <p>Endoscopie digestive</p>
+            <span>Coloscopie & Fibroscopie</span>
+          </div>
+        </div>
+        <div class="af-item">
+          <div class="af-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <p>Approche personnalisée</p>
+            <span>Écoute & bienveillance</span>
+          </div>
+        </div>
+        <div class="af-item">
+          <div class="af-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div>
+            <p>RDV rapide WhatsApp</p>
+            <span>+212 720 99 25 19</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-intro fade-in">
+    <div class="section-label">Spécialités</div>
+    <h2>Pathologies &amp; <em>prestations</em><br>médicales</h2>
+    <p>Prise en charge complète des maladies digestives, du diagnostic à la thérapeutique, avec des équipements modernes.</p>
+  </div>
+
+  <div class="services-grid fade-in">
+
+    <div class="service-card">
+      <div class="sc-num">01</div>
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 6h-3V4c0-1.11-.89-2-2-2H9c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM9 4h6v2H9V4z"/></svg>
+      </div>
+      <h3>Coloscopie</h3>
+      <p>Exploration endoscopique du côlon permettant le diagnostic des polypes, cancers, maladies inflammatoires et saignements digestifs.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="sc-num">02</div>
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      </div>
+      <h3>Fibroscopie gastrique</h3>
+      <p>Examen de l'œsophage, de l'estomac et du duodénum pour diagnostiquer les ulcères, RGO, gastrites et autres pathologies digestives hautes.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="sc-num">03</div>
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      </div>
+      <h3>Maladies du foie</h3>
+      <p>Diagnostic et suivi des hépatites, cirrhose, stéatose hépatique et autres affections hépatiques avec bilan complet.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="sc-num">04</div>
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6z"/></svg>
+      </div>
+      <h3>Proctologie</h3>
+      <p>Traitement des pathologies anorectales : hémorroïdes, fissures anales, fistules, condylomes et autres affections de l'anus et du rectum.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="sc-num">05</div>
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 11H7v9h2v-9zm4 0h-2v9h2v-9zm4 0h-2v9h2v-9zM20 4h-3.5l-1-1h-7l-1 1H4v2h16V4z"/></svg>
+      </div>
+      <h3>Maladies inflammatoires</h3>
+      <p>Suivi et traitement des MICI : maladie de Crohn, rectocolite hémorragique, avec protocoles thérapeutiques adaptés.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="sc-num">06</div>
+      <div class="sc-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+      </div>
+      <h3>Bilan de santé digestif</h3>
+      <p>Consultations préventives et bilans complets pour un dépistage précoce du cancer colorectal et des pathologies digestives.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PATHOLOGIES -->
+<section id="pathologies">
+  <div class="patho-header fade-in">
+    <div>
+      <div class="section-label">Spécialités & Pathologies</div>
+      <h2>Toutes les pathologies <em>traitées</em></h2>
+    </div>
+    <div class="patho-header-right">
+      Le Dr ESSAHLAOUI prend en charge un large spectre de pathologies gastro-intestinales et proctologiques. Sélectionnez une catégorie pour découvrir les maladies traitées et les examens disponibles.
+    </div>
+  </div>
+
+  <div class="patho-tabs fade-in">
+    <button class="patho-tab active" onclick="switchTab(this,'tab-digestif')">Appareil digestif</button>
+    <button class="patho-tab" onclick="switchTab(this,'tab-colon')">Côlon & Rectum</button>
+    <button class="patho-tab" onclick="switchTab(this,'tab-foie')">Foie & Pancréas</button>
+    <button class="patho-tab" onclick="switchTab(this,'tab-procto')">Proctologie</button>
+    <button class="patho-tab" onclick="switchTab(this,'tab-examens')">Examens & Procédures</button>
+  </div>
+
+  <div class="patho-panels fade-in">
+
+    <!-- Appareil digestif -->
+    <div id="tab-digestif" class="active">
+      <div class="patho-list">
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Reflux gastro-œsophagien</p><span>RGO — brûlures, régurgitations</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Ulcère gastrique & duodénal</p><span>Douleurs épigastriques, Helicobacter</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Gastrite chronique</p><span>Inflammation de la muqueuse gastrique</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Hernie hiatale</p><span>Remontée de l'estomac dans le thorax</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Dyspepsie fonctionnelle</p><span>Troubles digestifs hauts chroniques</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Syndrome de l'intestin irritable</p><span>SII — douleurs, ballonnements, transit</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Œsophagite</p><span>Inflammation de l'œsophage</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Trouble de la déglutition</p><span>Dysphagie, sensation de blocage</span></div></div>
+      </div>
+    </div>
+
+    <!-- Côlon & Rectum -->
+    <div id="tab-colon">
+      <div class="patho-list">
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Cancer colorectal</p><span>Dépistage, diagnostic & suivi</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Polypes coliques</p><span>Ablation et surveillance endoscopique</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Maladie de Crohn</p><span>MICI — inflammation chronique intestinale</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Rectocolite hémorragique</p><span>RCH — inflammation du côlon et rectum</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Diverticulose colique</p><span>Diverticules, diverticulite aiguë</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Rectorragies</p><span>Saignements rectaux — origine à préciser</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Constipation chronique</p><span>Bilan et prise en charge thérapeutique</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Diarrhée chronique</p><span>Origine infectieuse, fonctionnelle ou MICI</span></div></div>
+      </div>
+    </div>
+
+    <!-- Foie & Pancréas -->
+    <div id="tab-foie">
+      <div class="patho-list">
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Hépatite B & C chronique</p><span>Diagnostic, traitement antiviral, suivi</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Stéatose hépatique (NASH)</p><span>Foie gras non alcoolique — bilan métabolique</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Cirrhose hépatique</p><span>Surveillance et prévention des complications</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Lithiase biliaire</p><span>Calculs vésiculaires, colique hépatique</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Pancréatite chronique</p><span>Douleurs abdominales, insuffisance pancréatique</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Élévation des transaminases</p><span>Bilan étiologique complet du bilan hépatique</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Ictère / Jaunisse</p><span>Origine hépatique, biliaire ou hémolytique</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Cancer du foie (CHC)</p><span>Dépistage chez les patients à risque cirrhotique</span></div></div>
+      </div>
+    </div>
+
+    <!-- Proctologie -->
+    <div id="tab-procto">
+      <div class="patho-list">
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Hémorroïdes internes & externes</p><span>Traitement médical, instrumentaux ou chirurgical</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Fissure anale</p><span>Douleurs à la défécation, traitement local</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Fistule anale</p><span>Trajet fistuleux, écoulement, chirurgie</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Abcès anal</p><span>Drainage urgent, prévention des récidives</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Condylomes anaux</p><span>HPV — lésions périanales, traitement local</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Prolapsus rectal</p><span>Descente du rectum, traitement adapté</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Prurit anal</p><span>Démangeaisons anales chroniques — étiologie</span></div></div>
+      </div>
+    </div>
+
+    <!-- Examens -->
+    <div id="tab-examens">
+      <div class="patho-list">
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Coloscopie totale</p><span>Exploration du côlon sous sédation</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Fibroscopie gastrique (FOGD)</p><span>Exploration haute : œsophage, estomac, duodénum</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Polypectomie endoscopique</p><span>Ablation de polypes lors de la coloscopie</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Biopsies digestives</p><span>Prélèvements pour analyse anatomopathologique</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Test à l'uréase (CLO test)</p><span>Détection de l'Helicobacter pylori</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Anuscopie / Rectoscopie</p><span>Examen proctologique de première intention</span></div></div>
+        <div class="patho-item"><div class="patho-dot"></div><div class="patho-item-text"><p>Consultation & bilan préventif</p><span>Dépistage cancer colorectal dès 45 ans</span></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="patho-cta-bar fade-in">
+    <p>Vous souffrez d'un symptôme digestif ? <em>Ne tardez pas à consulter.</em></p>
+    <a href="https://wa.me/212720992519?text=Bonjour%20Dr%20ESSAHLAOUI%2C%20je%20souhaite%20prendre%20un%20rendez-vous." class="cta-primary" target="_blank" style="white-space:nowrap">
+      <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.845L.017 23.604a.5.5 0 00.602.602l5.76-1.494A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.017-1.374l-.36-.213-3.722.965.988-3.613-.234-.372A9.818 9.818 0 012.182 12c0-5.417 4.401-9.818 9.818-9.818 5.417 0 9.818 4.401 9.818 9.818 0 5.418-4.401 9.818-9.818 9.818z"/></svg>
+      Prendre RDV WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="fade-in">
+    <div class="section-label">Avis Patients</div>
+    <h2>Ce que disent nos <em>patients</em></h2>
+  </div>
+  <div class="testi-grid fade-in">
+
+    <div class="testi-card">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      </div>
+      <p class="testi-text">"Médecin très compétent et à l'écoute. Il m'a bien expliqué mon diagnostic et le traitement à suivre. Je le recommande vivement à toute personne ayant des problèmes digestifs."</p>
+      <div class="testi-author">
+        <div class="testi-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg></div>
+        <div class="testi-author-info"><p>Fatima B.</p><span>Patiente — Meknès</span></div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      </div>
+      <p class="testi-text">"J'ai fait une coloscopie avec le Dr ESSAHLAOUI. Tout s'est très bien passé, l'équipe est professionnelle et rassurante. Les résultats m'ont été bien expliqués. Merci docteur."</p>
+      <div class="testi-author">
+        <div class="testi-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg></div>
+        <div class="testi-author-info"><p>Ahmed K.</p><span>Patient — Hamria</span></div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      </div>
+      <p class="testi-text">"Prise en charge rapide via WhatsApp, très pratique. Le docteur est sérieux, attentionné et disponible. Mes problèmes de reflux sont enfin sous contrôle grâce à son suivi."</p>
+      <div class="testi-author">
+        <div class="testi-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg></div>
+        <div class="testi-author-info"><p>Nadia L.</p><span>Patiente — Meknès</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-grid fade-in">
+    <div class="faq-intro">
+      <div class="section-label">FAQ</div>
+      <h2>Questions <em>fréquentes</em></h2>
+      <p>Retrouvez les réponses aux questions les plus posées sur nos consultations, examens et modalités de prise en charge.</p>
+      <a href="https://wa.me/212720992519?text=Bonjour%20Dr%20ESSAHLAOUI%2C%20j%27ai%20une%20question." class="cta-primary" target="_blank" style="display:inline-flex;margin-top:8px;">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.845L.017 23.604a.5.5 0 00.602.602l5.76-1.494A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.017-1.374l-.36-.213-3.722.965.988-3.613-.234-.372A9.818 9.818 0 012.182 12c0-5.417 4.401-9.818 9.818-9.818 5.417 0 9.818 4.401 9.818 9.818 0 5.418-4.401 9.818-9.818 9.818z"/></svg>
+        Poser une question
+      </a>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Comment prendre rendez-vous ?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="faq-a">Vous pouvez prendre rendez-vous directement via WhatsApp au +212 720 99 25 19. C'est le moyen le plus rapide pour obtenir une consultation avec le Dr ESSAHLAOUI.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Où se situe le cabinet ?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="faq-a">Le cabinet du Dr ESSAHLAOUI est situé à Hamria, Meknès. Pour l'adresse précise, veuillez contacter le cabinet par WhatsApp.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          La coloscopie est-elle douloureuse ?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="faq-a">La coloscopie se réalise sous sédation légère, ce qui rend l'examen confortable et indolore pour la grande majorité des patients. Le Dr ESSAHLAOUI prend toutes les précautions nécessaires pour votre bien-être.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quels examens réalisez-vous ?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="faq-a">Le Dr ESSAHLAOUI réalise des coloscopies, fibroscopies gastriques, consultations pour pathologies digestives, maladies du foie, et prend en charge les affections proctologiques (hémorroïdes, fissures, etc.).</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Acceptez-vous les mutuelles ?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="faq-a">Pour les informations sur la prise en charge par les mutuelles et assurances, veuillez contacter le cabinet directement par WhatsApp pour obtenir une réponse personnalisée.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Faut-il être à jeun pour la fibroscopie ?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="faq-a">Oui, la fibroscopie gastrique nécessite d'être à jeun depuis au moins 6 heures avant l'examen. Des instructions détaillées vous seront communiquées lors de la prise de rendez-vous.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid fade-in">
+    <div>
+      <div class="section-label">Contact</div>
+      <h2>Prendre <em>rendez-vous</em></h2>
+      <p class="section-intro">Consultez le Dr ESSAHLAOUI pour tout problème digestif. Contactez-nous par WhatsApp pour une réponse rapide.</p>
+
+      <div class="contact-infos">
+        <div class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div class="ci-content">
+            <p>WhatsApp</p>
+            <strong>+212 720 99 25 19</strong>
+          </div>
+        </div>
+
+        <div class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="ci-content">
+            <p>Adresse</p>
+            <strong>Av. Hassan II, Imm CITYWORK 3ème Étage, Bureau N°12, Meknès - Hamria</strong>
+          </div>
+        </div>
+
+        <div class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          </div>
+          <div class="ci-content">
+            <p>Horaires</p>
+            <strong>Lun-Ven: 9h-17h / Sam: 9h-13h</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-box">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Prénom</label>
+          <input type="text" placeholder="Votre prénom">
+        </div>
+        <div class="form-group">
+          <label>Nom</label>
+          <input type="text" placeholder="Votre nom">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Téléphone</label>
+        <input type="tel" placeholder="+212 6XX XXX XXX">
+      </div>
+      <div class="form-group">
+        <label>Motif de consultation</label>
+        <select>
+          <option value="">Sélectionnez...</option>
+          <option>Coloscopie</option>
+          <option>Fibroscopie gastrique</option>
+          <option>Consultation digestive</option>
+          <option>Proctologie</option>
+          <option>Maladies du foie</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message (optionnel)</label>
+        <textarea placeholder="Décrivez brièvement votre problème..."></textarea>
+      </div>
+      <a href="https://wa.me/212720992519?text=Bonjour%20Dr%20ESSAHLAOUI%2C%20je%20souhaite%20prendre%20un%20rendez-vous." target="_blank" style="text-decoration:none">
+        <button class="btn-submit" type="button">
+          <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.845L.017 23.604a.5.5 0 00.602.602l5.76-1.494A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.017-1.374l-.36-.213-3.722.965.988-3.613-.234-.372A9.818 9.818 0 012.182 12c0-5.417 4.401-9.818 9.818-9.818 5.417 0 9.818 4.401 9.818 9.818 0 5.418-4.401 9.818-9.818 9.818z"/></svg>
+          Envoyer via WhatsApp
+        </button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#hero" class="footer-logo">Dr Soufiane <span>ESSAHLAOUI</span></a>
+  <p>© 2025 Dr Soufiane ESSAHLAOUI — Gastro-Entérologue & Proctologue à Meknès</p>
+  <p><a href="https://wa.me/212720992519" target="_blank">+212 720 99 25 19</a></p>
+</footer>
+
+<!-- WhatsApp floating button -->
+<a href="https://wa.me/212720992519?text=Bonjour%20Dr%20ESSAHLAOUI%2C%20je%20souhaite%20prendre%20un%20rendez-vous." class="wa-float" target="_blank" title="Contacter sur WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.845L.017 23.604a.5.5 0 00.602.602l5.76-1.494A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.017-1.374l-.36-.213-3.722.965.988-3.613-.234-.372A9.818 9.818 0 012.182 12c0-5.417 4.401-9.818 9.818-9.818 5.417 0 9.818 4.401 9.818 9.818 0 5.418-4.401 9.818-9.818 9.818z"/></svg>
+</a>
+
+<script>
+  // Tab switcher
+  function switchTab(btn, panelId) {
+    document.querySelectorAll('.patho-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.patho-panels > div').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+  }
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.08)' : 'none';
+  });
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const allItems = document.querySelectorAll('.faq-item');
+    allItems.forEach(i => { if(i !== item) i.classList.remove('open'); });
+    item.classList.toggle('open');
+  }
+
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
